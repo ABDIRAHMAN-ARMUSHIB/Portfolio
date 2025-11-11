@@ -1,0 +1,1130 @@
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family:  'Poppins', sans-serif;
+}
+
+
+
+
+/* Navbar */
+#nav {
+  background-color: #3EAEAE;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;   /* ✅ stays on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  margin-left:60px ;
+  cursor: pointer;
+}
+.logo:hover{
+ color: #0a1b4f;
+   transition: 0.3s;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  transition: all 0.4s ease-in-out;
+    
+}
+
+.nav-links li a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
+  padding: 0.2rem 1.5rem;
+  margin: 0 0.3rem;
+  transition: color 0.3s;
+}
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  background-color: darkorange;
+  height: 3px;
+  width: 0;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  transition: width 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #0a1b4f;;
+}
+
+.nav-links li a:hover::after {
+  width: 60%;
+
+}
+/* this helps when clicking the links smoothly scrolls down instead of jumping instantly:*/
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  transition: transform 0.3s;
+}
+
+/* Change icon to X when open */
+.menu-toggle.open i::before {
+  content: "\f00d"; /* FontAwesome X mark */
+}
+
+/* 🟩 Responsive - slide in from RIGHT */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: -100%; /* 🟩 Hidden off-screen on the right */
+    width: 50%; /* 🟩 Takes 70% of screen width */
+    height: 100vh;
+    background-color: #3EAEAE;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    gap: 2rem;
+    box-shadow: -5px 0 10px rgba(0,0,0,0.2);
+    transition: right 0.4s ease-in-out; /* 🟩 Smooth slide animation */
+  }
+
+  .nav-links.active {
+    right: 0; /* 🟩 Slides in when active */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+
+  .nav-links li a {
+    font-size: 18px;
+    top: 40px;
+  }
+}
+
+
+/* === Main Section === */
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 100px 80px;
+  position: relative;
+  background-color:#e0e1e1;
+  
+}
+.min-main {
+   flex: 1;
+}
+
+.min-main h1{
+  font-size: 2.5rem;
+  color: #0a1b4f;
+   font-size:60px ;
+}
+.min-main h1 span {
+  color: #ff7b00;
+}
+
+/* === Image Styling === */
+.image{
+  
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3EAEAE;
+  position: relative;  /* ✅ keeps it in normal flow */
+  z-index: 1;
+  float: right;
+}
+.image img:hover{
+  border: 4px solid #3EAEAE;
+
+}
+.btn {
+  background: #5d3fd3;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #3b26a3;
+}
+/* Social Icons */
+.socials {
+  margin-top: 30px;
+}
+.socials a {
+  color: #000;
+  font-size: 2.4rem;
+  margin-right: 20px;
+  transition: 0.3s;
+}
+
+.socials a:hover {
+  color: #5d3fd3;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* --- Large Tablets (max-width: 992px) --- */
+@media (max-width: 992px) {
+  .main {
+    flex-direction: column;
+    padding: 80px 40px;
+    height: auto;
+    text-align: center;
+  }
+
+  .min-main {
+    order: 2; /* text below image */
+  }
+
+  .image {
+    order: 1; /* image first */
+    margin-bottom: 40px;
+    
+  }
+
+  .image img {
+    width: 300px;
+    height: 300px;
+  
+  }
+
+  .min-main h1 {
+    font-size: 45px;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+  }
+}
+
+/* --- Small Tablets and Large Phones (max-width: 768px) --- */
+@media (max-width: 768px) {
+  .main {
+    padding: 60px 20px;
+  }
+
+  .min-main h1 {
+    font-size: 35px;
+  }
+
+  .image img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .btn {
+    font-size: 1.2rem;
+    padding: 8px 20px;
+  }
+
+  .socials a {
+    font-size: 2rem;
+  }
+}
+
+/* --- Small Phones (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .main {
+    padding: 40px 15px;
+  }
+
+  .min-main h1 {
+    font-size: 28px;
+  }
+
+  .image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 8px 18px;
+  }
+
+  .socials a {
+    font-size: 1.8rem;
+    margin-right: 15px;
+  }
+}
+
+/* Second page  */
+.fasolid{
+  text-align: center;
+  color: blue;
+  order: 1;
+  align-items: center;
+  top: auto;
+
+}
+#secondpage{
+box-sizing: border-box;
+margin-top:-36px;
+padding-top: 40px;
+background-color: beige;
+align-items: center;
+justify-content: center;
+display: flex;
+
+}
+
+#secondpage img{
+
+height: auto;
+width:400px;
+object-fit: cover;
+border-radius: 20px;
+margin-bottom: 30px;
+margin-top: 50px;
+margin-left: 50px;
+
+}
+/* === ABOUT TEXT === */
+#secondpage h1 {
+  font-size: 2.5rem;
+  color: #0a1b4f;
+  margin-bottom: 20px;
+  text-align: center;
+  order: 1;
+}
+
+.fasolid {
+  text-align: center;
+  width: 100%;
+}
+
+.p1 {
+  font-size: 22px;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  align-items: center;
+  justify-content: center;
+  max-width: 770px;
+  order: 2;
+  padding-left: 150px;
+
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablet view */
+@media (max-width: 992px) {
+  #secondpage {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+  }
+
+  #secondpage img {
+    width: 300px;
+  }
+
+  .p1 {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  #secondpage {
+    padding: 30px 20px;
+  }
+
+  #secondpage img {
+    width:250px;
+  }
+
+  .p1 {
+    font-size: 16px;
+  }
+}
+
+/*---Third page---*/
+
+#Skill {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.75rem;
+  max-width: 500rem;
+  margin: 3.125rem, auto;
+  margin-top: 3.125rem;
+padding-bottom: 3.125rem;
+  margin-left: 3.75rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  order: 2;
+}
+.heading {
+  margin-top:-36px;
+ padding-top: 1.875rem;
+  font-size: 1.5rem;
+ background-color: 	#f4f4f4;
+ color:  #0a1b4f;
+text-align: center;
+margin-bottom: 3.125rem;
+top: 0;
+
+}
+
+.c {
+  background-color: #0a001f;
+    border: 1px solid cadetblue;
+    box-shadow: hsl(180, 46%, 50%);
+  border-radius: 1rem;
+  padding: 2.8rem;
+  width: 12.50rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.c img {
+  width: 6.25rem;
+  height: 6.25rem;
+  margin-bottom:0.625rem;
+}
+
+.c p {
+  font-weight: bold;
+  margin: 0;
+  color: #e0e1e1;
+  text-align: center;
+}
+
+.c:hover {
+  transform: scale(1.05);
+
+}
+
+.html {
+  position: relative;
+
+  background-color: #0a001f;
+  border-radius: 1rem;
+  width: 12.50rem;
+  padding: 2.8rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 1;
+ 
+}
+
+.html img {
+  width: 6.25rem;
+  height: 6.25rem;
+  margin-bottom: 0.625rem;
+}
+
+.html p {
+  font-weight: bold;
+  margin: 0;
+  color: #e0e1e1;
+  text-align: center;}
+
+.html:hover {
+  transform: scale(1.06);
+}
+
+.css{
+  background-color: #0a001f;
+  border-radius: 1rem;
+  width: 12.50rem;
+  padding: 2.8rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.css img {
+  width: 6.25rem;
+  height: 6.25rem;
+  margin-bottom: 0.625;
+}
+
+.css p {
+  font-weight: bold;
+  margin: 0;
+  color: #e0e1e1;
+  text-align: center;}
+
+.css:hover {
+  transform: scale(1.06);
+
+}
+
+.java {
+  position: relative;
+  z-index: 1;
+  background-color: #0a001f;
+  border-radius: 1rem;
+  padding: 2.8rem;
+  width: 12.5rem;
+
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.java img {
+  width: 6.25rem;
+  height: 6.25rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.625;
+}
+
+.java p {
+  font-weight: bold;
+  margin: 0;
+  color: #e0e1e1;
+  text-align: center;
+}
+
+
+.java:hover {
+  transform: scale(1.06);
+}
+  
+
+.javascript{
+  position: relative;
+  z-index: 1;
+  background-color: #0a001f;
+  border-radius: 1rem;
+  width: 12.5rem;
+  padding: 2.8rem;
+  padding-top: 1.875rem;
+  grid-column: -1 / 1;  /* spans full width */
+ /* justify-self: center; */
+  transition: transform 0.3s, box-shadow 0.3s;
+
+
+
+  /*  margin-left: 38px; */
+
+}
+
+.javascript img {
+  width: 6.25rem;
+  height: 6.25rem;
+  margin-bottom: 0.625rem;
+}
+
+.javascript p {
+  font-weight: bold;
+  margin: 0;
+  color: #e0e1e1;
+text-align: center;
+padding-right: 0.625rem;
+
+}
+
+.javascript:hover {
+  transform: scale(1.06);
+
+  
+}
+
+@property  --angle{
+          syntax:"<angle>";
+          initial-value: 0deg;
+          inherits:false;
+}
+
+.c::after,
+.c ::before,
+.html::before,
+.html::after,
+.css::after,
+.css::before,
+.java::before,
+.java::after,
+.javascript::before,
+.javascript::after{
+content: "";
+position: absolute;
+background-image: conic-gradient( from var(--angle),
+ red 25%, blue 25%, blue 50%,red 50%,red 75%, blue 75%);
+
+
+
+ -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+z-index: 0;
+width:100% ;
+height: 100%;
+top: 50%;
+left: 50%;
+translate: -50% -50%;
+padding: 3px;
+border-radius: 19px;
+
+
+/*---Animation--*/
+animation: 8s  spin2 linear infinite;
+
+
+}
+.html::before{
+          filter: blur(9px);
+          opacity:0.5;
+}
+@keyframes spin2{
+         
+          to{
+                    --angle: 360deg;
+          }
+           
+}
+
+/* ---------- Responsive Design ---------- */
+
+/* ✅ Responsive Breakpoints */
+
+/* Tablets */
+
+
+
+
+
+@media (max-width: 1201px) {
+  #Skill {
+    gap: 1.25rem;
+     grid-template-columns: repeat(8, 1fr);
+
+  }
+
+  
+}
+/* Tablets */
+@media (max-width: 992px) {
+  #Skill {
+    gap: 1.25rem;
+     grid-template-columns: repeat(4, 1fr);
+  }
+  .c, .html, .css, .java {
+    width: 12.45rem;
+    margin-left: 2.5rem;
+  }
+  .javascript {
+    width:12.45rem;
+    margin-right: 3.125rem;
+    
+ margin-left: 38px;
+   
+  }
+}
+ .javascript p{
+   justify-self: center;
+
+  }
+
+
+
+
+  /* If you prefeumn for clarity */
+
+  
+
+@media (min-width: 500px) and (max-width: 540px) {
+
+ 
+
+  #Skill {
+    grid-template-columns: 1fr;
+   
+  }
+
+
+}
+
+
+ 
+
+@media (max-width: 500px) {
+  #Skill {
+    grid-template-columns: 1fr;
+     
+  }
+  
+  .javascript {
+    grid-column: 1 / -1;
+
+
+
+
+     margin-left: 39px;
+
+
+  
+
+  }
+}
+
+
+ /*
+
+  /* Responsive for small screens (up to 600px) */
+  /*
+  
+
+@media (max-width: 600px) {
+  #Skill {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+    margin-left: 20px;
+    padding-bottom: 30px;
+    font-size: 1.5rem;
+  }
+
+  .c, .html, .css, .java, .javascript {
+    width: 5rem;
+    padding: 0.5rem;
+  }
+
+  .c img, .html img, .css img, .java img, .javascript img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .c p, .html p, .css p, .java p, .javascript p {
+    font-size: 0.9rem;
+  }
+
+  .heading {
+    font-size: 1.2rem;
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+} */
+
+ /*
+/* Mobile */
+ /*
+@media (max-width: 600px) {
+  #Skill {
+    grid-template-columns: repeat(4, 1fr);
+      max-width: 6.25rem;
+  }
+
+  .c, .html, .css, .java {
+    width: 10rem;
+    padding: 1.75rem;
+   
+  }
+
+  .javascript {
+    grid-column: 1 / -1;
+    width: 10.625rem;
+  
+
+  }
+  
+  .javascript p{
+justify-self: center;
+padding-left: 0.375rem;
+  
+  }
+    .javascript img{
+    align-self: center;
+  
+  }
+}
+
+/* Small Phones */
+/*
+@media (max-width: 400px) {
+    #Skill {
+   
+    grid-template-columns: repeat((4, 1fr));
+
+
+  }
+  .c, .html, .css, .java,.javascript {
+    width: 100%;
+    padding: 0.75rem;
+
+    
+
+  }
+  Added */
+
+  /* Added*/
+  /*
+  .c img, .html img, .css img, .java img, .javascript img {
+    width: 3.75rem;
+    height:3.75rem;
+  }
+
+  .javascript {
+    width: 10rem;
+  }
+   .javascript p{
+    justify-self: center;
+  }
+}
+ */
+
+
+
+
+
+ /* CONTACTS  PAGE*/
+
+.Message-title{
+  margin-left: 100px;
+  bottom: 230px;             /* position above form */
+  color: white;
+  padding: 8px 14px;
+  text-align: center;
+  width: 240px;
+}
+
+.messages{
+  flex: 1;
+  border: 2px solid #00acee;
+  border-radius:10px ;
+  width: 450px;
+  max-width: 650px;
+  margin-left: 50px;
+  margin-top: 10px;
+  padding: 40px 50px;
+ margin-bottom: 100px;
+}
+.messages input[type="text"],
+.messages textarea,
+.messages input[type="email"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid cadetblue;
+  outline: none;
+  background-color: ghostwhite;
+  background: transparent;
+  color: white;
+}
+
+
+.messages textarea {
+  height: 80px;
+  resize: none;
+}
+
+.messages button[type="submit"] {
+  width: 30%;
+  background-color: cadetblue;
+  color: white;
+  border: 2px solid #00acee;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  animation-name: move;
+display: flex;
+justify-self: flex-end;
+
+}
+.messages button:hover {
+  background-color: black;
+  border: 2px solid cadetblue;
+}
+#Contact{
+  background-color:	#03002e;
+  color: white;
+  margin-top: -50px;
+}
+.Contacts{
+ display: flex;
+ text-align: center;
+ align-items: center;
+ justify-content: center;
+ gap:10px;
+}
+.Contacts img{
+align-items: center;
+height: 60px;
+margin-top: 20px;
+}
+.Contacts h2{
+font-size: 2rem;
+margin-top: 20px;
+}
+
+/* Align form and contact info side by side */
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap; /* makes it responsive */
+  margin-top: 30px;
+
+
+}
+
+.Contactt{
+flex: 1;
+max-width: 350px;
+
+
+
+}
+
+.phone-no {
+  font-size: 0.8rem;   
+  margin-left:9px ;             
+  vertical-align: middle; 
+}
+
+.btn2 {
+  position: relative;
+  background: #5d3fd3;
+  color: #fff;
+  border: none;
+  z-index: 1;
+  padding: 10px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+
+}
+.btn2::before,
+.btn2::after{
+content: "";
+background: linear-gradient(
+45deg,
+ #ff0000, #FF7300, #fffb00, #48ff00, 
+ #00ffd5, #002BFF, #FF00CB, #FF0000
+);
+position: absolute;
+top: -1px;
+left: -1px;
+right: 2px;
+
+background-size: 600%;
+z-index: -1;
+width: 100%;
+height: 100%;
+filter: blur(2px);
+
+/*---Animation--*/
+animation: glowing 20s linear infinite;
+transition: opercity 0.3s ease-in-out;
+border-radius: 15px;
+
+opacity: 1;
+}
+@keyframes glowing{
+          0%{
+             background-position: 0 0;       
+          }
+             50%{
+             background-position: 500% 0;       
+          }
+             100%{
+             background-position: 0 0;       
+          }
+}
+  
+
+
+
+
+#Contact-Socials{
+  display: flex;
+  gap: 30px;  
+}
+
+#Contact-Socials a{
+  color: white;
+  font-size: 30px;
+margin-bottom: 20px;
+
+}
+
+#Contact-Socials a:hover {
+   transform: scale(1.1);
+  color: #00acee; /* for example: light blue */
+}
+hr.l3{
+  border: none;
+  height: 2px;
+  background-color: #0096c7;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.spn{
+  color: red;
+  font-size: 15px;
+}
+.spn{
+  color: red;
+  font-size: 15px;
+  animation: spin 10s infinite ease-in-out;
+} 
+@keyframes spin{
+  0%{
+color: red;
+  }
+  25%{
+    color: black;
+  }
+
+  50%{
+    color: white;
+  }
+  75%{
+    color: green;
+  }
+  100%{
+   color: gold;
+  }
+ 
+}
+  
+/* Large Tablets & Small Laptops (992px and below) */
+
+
+  
+@media (max-width: 992px) {
+  .contact-content {
+    gap: 20px;
+  }
+
+  .messages,
+  .Contactt {
+    flex: 1 1 48%;
+    padding: 15px;
+  }
+
+  .Messages-title {
+    font-size: 22px;
+  }
+}
+
+/* Tablets (768px and below) */
+@media (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .messages,
+  .Contactt {
+    flex: 1 1 100%;
+    width: 90%;
+    margin-left: 0;
+  }
+  .Contactt{
+    margin-top: -80px;
+    
+  }
+
+  .Contacts img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .Message-title {
+font-size: 22px;
+margin-left: 0;
+
+
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+
+/* Small Phones (576px and below) */
+@media (max-width: 576px) {
+  .Contacts img {
+    width: 60px;
+    height: 60px;
+  }
+  
+/* Self added */
+.contact-content{
+  align-items: center;
+  align-content: center;
+ 
+  
+}
+  .Message-title {
+    font-size: 22px;
+ 
+  }
+
+   .messages{
+ margin-top: 0;
+   }
+  .messages,
+  .Contactt {
+    padding: 12px;
+    box-shadow: none;
+  }
+
+  #Contact-Socials a {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 10px;
+  }
+  #Contact{
+    width: 100%;
+  }
+}
