@@ -222,6 +222,7 @@ html {
   .image {
     order: 1; /* image first */
     margin-bottom: 40px;
+    margin-top: 25px;
     
   }
 
