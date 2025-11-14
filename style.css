@@ -353,6 +353,14 @@ margin-left: 50px;
 /* === RESPONSIVE DESIGN === */
 
 /* Tablet view */
+
+@media (max-width: 1200px){
+
+  .p1 {
+    font-size: 18px;
+    padding: 0 60px;
+  }
+}
 @media (max-width: 992px) {
   #secondpage {
     flex-direction: column;
@@ -378,6 +386,7 @@ margin-left: 50px;
 
   #secondpage img {
     width:250px;
+    margin-right: 40px;
   }
 
   .p1 {
